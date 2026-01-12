@@ -15,18 +15,18 @@ steps:
 - checkout: self
   persistCredentials: true
 
-- powershell: ./scripts/validate-naming.ps1 "$(projectName)"
+- powershell: ./scripts/validate-naming.ps1 "${{ parameters.projectName }}"
 
-- powershell: ./scripts/create-project.ps1 "$(projectName)" "$(description)"
+- powershell: ./scripts/create-project.ps1 "${{ parameters.projectName }}" "${{ parameters.description }}"
 
-- powershell: ./scripts/configure-features.ps1 "$(projectName)"
+- powershell: ./scripts/configure-features.ps1 "${{ parameters.projectName }}"
 
-- powershell: ./scripts/create-groups.ps1 "$(projectName)"
+- powershell: ./scripts/create-groups.ps1 "${{ parameters.projectName }}"
 
-- powershell: ./scripts/configure-permissions.ps1 "$(projectName)"
+- powershell: ./scripts/configure-permissions.ps1 "${{ parameters.projectName }}"
 
-- powershell: ./scripts/import-repos.ps1 "$(projectName)"
+- powershell: ./scripts/import-repos.ps1 "${{ parameters.projectName }}"
 
-- powershell: ./scripts/create-environments.ps1 "$(projectName)" "$(projectType)"
+- powershell: ./scripts/create-environments.ps1 "${{ parameters.projectName }}" "${{ parameters.projectType }}"
 
-- powershell: ./scripts/configure-approvals.ps1 "$(projectName)"
+- powershell: ./scripts/configure-approvals.ps1 "${{ parameters.projectName }}"
